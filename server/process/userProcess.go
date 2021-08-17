@@ -3,7 +3,7 @@ package process
 import (
 	"encoding/json"
 	"fmt"
-	"go-chat/common/message"
+	common "go-chat/common/message"
 	"go-chat/server/model"
 	"go-chat/server/utils"
 	"net"
@@ -14,6 +14,7 @@ type UserProcess struct {
 }
 
 func register(userName, passWord, passWordConfirm string) (user model.User, err error) {
+	// 用户注册
 	user, err = model.CurrentUserDao.Register(userName, passWord, passWordConfirm)
 	return
 }
@@ -66,6 +67,7 @@ func (this *UserProcess) UserRegister(message string) (err error) {
 }
 
 func (this *UserProcess) UserLogin(message string) (err error) {
+	// 用户登录流程处理
 	var info common.LoginMessage
 	var code int
 	var data string

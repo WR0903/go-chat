@@ -12,6 +12,7 @@ import (
 type PointToPointMessageProcess struct{}
 
 func (this PointToPointMessageProcess) sendMessageToTargetUser(message string) (err error) {
+	// 发送信息到目标用户
 	var pointToPointMessage common.PointToPointMessage
 	err = json.Unmarshal([]byte(message), &pointToPointMessage)
 	if err != nil {
@@ -19,7 +20,7 @@ func (this PointToPointMessageProcess) sendMessageToTargetUser(message string) (
 	}
 
 	clientConn := model.ClientConn{}
-	conn, err := clientConn.SearchByUserName(pointToPointMessage.TargetUserName)
+	conn, err := clientConn.SearchByUserName(pointToPointMessage.TargetUserName) // 先获取目标客户端的网络连接
 	if err != nil {
 		return
 	}

@@ -16,6 +16,7 @@ type OnlineInfoProcess struct {
 type UserInfo = common.UserInfo
 
 func (this OnlineInfoProcess) showAllOnlineUserList() (err error) {
+	// 获取所有在线的用户列表
 	var onlineUserList []UserInfo
 	var code int
 	for _, connInfo := range model.ClientConnsMap {

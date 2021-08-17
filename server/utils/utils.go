@@ -15,6 +15,7 @@ type Dispatcher struct {
 }
 
 func (dispatcher Dispatcher) ReadData() (message common.Message, err error) {
+	// 读取信息
 	buf := dispatcher.Buf
 
 	// 读取消息长度信息
@@ -47,6 +48,7 @@ func (dispatcher Dispatcher) ReadData() (message common.Message, err error) {
 }
 
 func (dispatcher Dispatcher) WriteData(data []byte) (err error) {
+	// 发送消息给客户端，先把消息的长度发送过去，再把消息体发送过去
 	var dataLen uint32
 	dataLen = uint32(len(data))
 	var bytes [4]byte

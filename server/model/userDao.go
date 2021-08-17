@@ -21,6 +21,7 @@ func InitUserDao(pool *redis.Pool) (currentUserDao *UserDao) {
 }
 
 func idIncr(conn redis.Conn) (id int, err error) {
+	// 生成一个自增的id
 	res, err := conn.Do("incr", "users_id")
 	id = int(res.(int64))
 	if err != nil {

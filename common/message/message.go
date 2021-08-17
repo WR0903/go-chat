@@ -29,6 +29,7 @@ type Message struct {
 }
 
 type LoginMessage struct {
+	// 登录相关数据结构
 	UserName string
 	Password string
 }
@@ -41,12 +42,14 @@ type ResponseMessage struct {
 }
 
 type RegisterMessage struct {
+	// 注册信息相关数据结构
 	UserName        string
 	Password        string
 	PasswordConfirm string
 }
 
 type UserSendGroupMessage struct {
+	// 发送群聊的时候，相关数据结构
 	GroupID  int    // target group id, 0 => all users
 	UserName string // current user name
 	Content  string // message content
@@ -59,6 +62,7 @@ type SendGroupMessageToClient struct {
 }
 
 type PointToPointMessage struct {
+	// 单聊相关的数据结构
 	SourceUserID   int
 	SourceUserName string
 	TargetUserID   int
@@ -68,6 +72,7 @@ type PointToPointMessage struct {
 
 // on line user info
 type UserInfo struct {
+	// 用户信息
 	ID       int
 	UserName string
 }
